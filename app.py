@@ -100,14 +100,14 @@ if mode == "Graph Plot":
             ax.set_xticklabels([r"$-4\pi$", r"$-3\pi$", r"$-2\pi$", r"$-\pi$", r"$0$", r"$\pi$", r"$2\pi$", r"$3\pi$", r"$4\pi$"], rotation=0 , color='black', fontsize = 20)
             ax.plot(x, y,  color='blue', linewidth=1, linestyle='-', label="Cosine Wave" ) 
             st.pyplot(fig, use_container_width=True)
-    elif equation_type == "Tangent":
-                st.subheader("Tangent Equation Plotter")
+    elif equation_type == "ECG":
+                st.subheader("ECG Equation Plotter")
                 amplitude = st.slider(label="Amplitude:", min_value=1, max_value=50, value=10)
                 frequency = st.slider(label="Frequency:", min_value=1, max_value=50, value=10)
                 x = np.linspace(-4*np.pi, 4*np.pi, 2000)
                 y = amplitude * np.tan(frequency * x)
                 fig, ax = plt.subplots(figsize=(20, 15))
-                ax.set_title("Tangent Wave" )
+                ax.set_title("ECG Wave" )
                 ax.axhline(y=0, color='black', linestyle='-', linewidth=1)
                 ax.axvline(x=0, color='black', linestyle='-', linewidth=1)
                 ax.grid(True, alpha=0.3)
@@ -266,5 +266,24 @@ elif mode == "Projectile Motion":
     st.subheader("Projectile Motion")
     st.write("This is where you can experiment with projectile motion and see how the angle of projection affects the trajectory of a projectile.")
     theta = st.slider(label="Angle of Projection:", min_value=0, max_value=90, value=45)
-    st.write("Acceleration due to gravity (m/s^2):", 9.81)
+    st.write(r"Acceleration due to gravity (m/$s^2$): 9.81")
     u = st.slider(label="Initial Velocity (m/s):", min_value=1, max_value=100, value=10)
+    m = st.slider(label="Mass of the projectile (g):", min_value=1, max_value=10000, value=10)
+    t = st.slider(label="Time (s):", min_value=0, max_value=100, value=2)
+        if t > time_flight:
+            st.write("Time exceeds the time of flight. Please adjust the time.")
+        else: 
+            st.write("")
+    
+    ucos0 = np.round(u * np.cos(np.radians(theta)), 3)
+    usin0 = np.round(u * np.sin(np.radians(theta)) - 9.81 * t, 3)
+    time_flight = (2 * u * np.sin(np.radians(theta))) / 9.81
+    st.write(f"Time of Flight: {time_flight} s")
+    range = (u**2 * np.sin(2 * np.radians(theta))) / 9.81
+    st.write(f"Range: {range} m")
+    max_height = (u**2 * (np.sin(np.radians(theta)))**2) / (2 * 9.81)
+    st.write(f"Maximum Height: {max_height} m")
+    KE = 0.5 * m * u**2
+    U = m * 9.81 * max_height
+    st.write(f"Kinetic Energy (K.E.): {KE} J")
+    st.write(f"Potential Energy (U) at maximum height: {U} J")
