@@ -288,3 +288,36 @@ elif mode == "Projectile Motion":
     U = m * 9.81 * max_height
     st.write(f"Kinetic Energy (K.E.): {KE} J")
     st.write(f"Potential Energy (U) at maximum height: {U} J")
+
+
+st.title("Projectile Trajectory Plotter")
+
+# 1. Inputs (velocity in m/s, angle in degrees)
+v0 = 25.0  # Initial velocity (m/s)
+angle_deg = 45.0  # Launch angle (degrees)
+g = 9.81  # Acceleration due to gravity (m/s^2)
+
+# Convert angle to radians for trigonometric functions
+angle_rad = np.radians(angle_deg)
+
+# 2. Calculate time of flight and time array
+t_flight = (2 * v0 * np.sin(angle_rad)) / g
+t = np.linspace(0, t_flight, 100)
+
+# 3. Calculate x and y trajectory positions
+x = v0 * np.cos(angle_rad) * t
+y = v0 * np.sin(angle_rad) * t - 0.5 * g * (t**2)
+
+# 4. Plot the trajectory
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(x, y, color="dodgerblue", linewidth=2, label="Trajectory")
+
+# Format axes and labels
+ax.set_title(f"Projectile Trajectory ($v_0 = {v0}$ m/s, $\\theta = {angle_deg}^\\circ$)")
+ax.set_xlabel("Horizontal Distance (m)")
+ax.set_ylabel("Vertical Height (m)")
+ax.set_ylim(bottom=0)  # Stop plot at ground level
+ax.grid(True, linestyle="--", alpha=0.5)
+ax.legend()
+
+st.pyplot(fig)
