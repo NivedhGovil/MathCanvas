@@ -5,11 +5,21 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.title("Website Name")
-st.write(" Welcome to the Math Website")
+st.markdown("""
+<style>
+    .stApp {
+        background-color: #c9f3f5;
+        font-family: 'sans-serif';
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
+st.title("Math Canvas")
+st.write(" Welcome to the Math Canvas, an interactive platform for exploring mathematical concepts through graph plotting and statistical analysis. Let's make math engaging and insightful!")
 
 st.header("Modes")
-mode = st.selectbox("Choose the mode:", options = ["Graph Plot" , "Statistics" ])
+mode = st.selectbox("Choose the mode:", options = ["Graph Plot" , "Statistics", "Projectile Motion" ])
 
 if mode == "Graph Plot":
     st.subheader("Graph Plot")
@@ -105,8 +115,156 @@ if mode == "Graph Plot":
                 ax.set_xticklabels([r"$-4\pi$", r"$-3\pi$", r"$-2\pi$", r"$-\pi$", r"$0$", r"$\pi$", r"$2\pi$", r"$3\pi$", r"$4\pi$"], rotation=0 , color='black', fontsize = 20)
                 ax.plot(x, y,  color='blue', linewidth=1, linestyle='-', label="Tangent Wave" ) 
                 st.pyplot(fig, use_container_width=True)
-else: 
+elif mode == "Statistics": 
      st.subheader("Statistics")
-     st.write("Enter the numbers separated by commas (e.g., 1, 2, 3, 4, 5):")
+     observations = st.selectbox("No. of observations", options = ["3" , "4" , "5" , "6" , "7" , "8" , "9" , "10"])
+     if observations == "3":
+         num1 = st.number_input("Enter the first number:")
+         num2 = st.number_input("Enter the second number:")
+         num3 = st.number_input("Enter the third number:")
+         numbers = [num1, num2, num3]
+        
+         st.write("Mean:", np.mean(numbers))
+         st.write("Standard Deviation:", np.std(numbers))
+         st.write("Variance:", np.var(numbers))
+         st.write("Median:", np.median(numbers))
+         st.write("Minimum:", np.min(numbers))
+         st.write("Maximum:", np.max(numbers))
+         st.write("Range:", np.max(numbers) - np.min(numbers))
 
+         values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
 
+         fig, ax = plt.subplots(figsize=(10, 5))
+         ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+         y= np.linspace(0, max(values) + 5, 100)
+         ax.set_title("Statistics", fontsize=20)
+         ax.set_ylabel("Values", fontsize=15)
+         ax.set_xlabel("Measures", fontsize=15)
+         plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+         st.pyplot(fig, use_container_width=True)
+
+     elif observations == "4":
+         num1 = st.number_input("Enter the first number:")
+         num2 = st.number_input("Enter the second number:")
+         num3 = st.number_input("Enter the third number:")
+         num4 = st.number_input("Enter the fourth number:")
+         numbers = [num1, num2, num3, num4]
+         
+         st.write("Mean:", np.mean(numbers))
+         st.write("Standard Deviation:", np.std(numbers))
+         st.write("Variance:", np.var(numbers))
+         st.write("Median:", np.median(numbers))
+         st.write("Minimum:", np.min(numbers))
+         st.write("Maximum:", np.max(numbers))
+         st.write("Range:", np.max(numbers) - np.min(numbers))
+     elif observations == "5":
+        num1 = st.number_input("Enter the first number:")
+        num2 = st.number_input("Enter the second number:")
+        num3 = st.number_input("Enter the third number:")
+        num4 = st.number_input("Enter the fourth number:")
+        num5 = st.number_input("Enter the fifth number:")
+        numbers = [num1, num2, num3, num4, num5]
+        
+        st.write("Mean:", np.mean(numbers))
+        st.write("Standard Deviation:", np.std(numbers))
+        st.write("Variance:", np.var(numbers))
+        st.write("Median:", np.median(numbers))
+        st.write("Minimum:", np.min(numbers))
+        st.write("Maximum:", np.max(numbers))
+        st.write("Range:", np.max(numbers) - np.min(numbers))
+     elif observations == "6":
+        num1 = st.number_input("Enter the first number:")
+        num2 = st.number_input("Enter the second number:")
+        num3 = st.number_input("Enter the third number:")
+        num4 = st.number_input("Enter the fourth number:")
+        num5 = st.number_input("Enter the fifth number:")
+        num6 = st.number_input("Enter the sixth number:")
+        numbers = [num1, num2, num3, num4, num5, num6]
+        
+        st.write("Mean:", np.mean(numbers))
+        st.write("Standard Deviation:", np.std(numbers))
+        st.write("Variance:", np.var(numbers))
+        st.write("Median:", np.median(numbers))
+        st.write("Minimum:", np.min(numbers))
+        st.write("Maximum:", np.max(numbers))
+        st.write("Range:", np.max(numbers) - np.min(numbers))
+     elif observations == "7":
+        num1 = st.number_input("Enter the first number:")
+        num2 = st.number_input("Enter the second number:")
+        num3 = st.number_input("Enter the third number:")
+        num4 = st.number_input("Enter the fourth number:")
+        num5 = st.number_input("Enter the fifth number:")
+        num6 = st.number_input("Enter the sixth number:")
+        num7 = st.number_input("Enter the seventh number:")
+        numbers = [num1, num2, num3, num4, num5, num6, num7]
+        
+        st.write("Mean:", np.mean(numbers))
+        st.write("Standard Deviation:", np.std(numbers))
+        st.write("Variance:", np.var(numbers))
+        st.write("Median:", np.median(numbers))
+        st.write("Minimum:", np.min(numbers))
+        st.write("Maximum:", np.max(numbers))
+        st.write("Range:", np.max(numbers) - np.min(numbers))
+     elif observations == "8":
+        num1 = st.number_input("Enter the first number:")
+        num2 = st.number_input("Enter the second number:")
+        num3 = st.number_input("Enter the third number:")
+        num4 = st.number_input("Enter the fourth number:")
+        num5 = st.number_input("Enter the fifth number:")
+        num6 = st.number_input("Enter the sixth number:")
+        num7 = st.number_input("Enter the seventh number:")
+        num8 = st.number_input("Enter the eighth number:")
+        numbers = [num1, num2, num3, num4, num5, num6, num7, num8]
+        st.write("Mean:", np.mean(numbers))
+        st.write("Standard Deviation:", np.std(numbers))
+        st.write("Variance:", np.var(numbers))
+        st.write("Median:", np.median(numbers))
+        st.write("Minimum:", np.min(numbers))
+        st.write("Maximum:", np.max(numbers))
+        st.write("Range:", np.max(numbers) - np.min(numbers))
+     elif observations == "9":
+        num1 = st.number_input("Enter the first number:")
+        num2 = st.number_input("Enter the second number:")
+        num3 = st.number_input("Enter the third number:")
+        num4 = st.number_input("Enter the fourth number:")
+        num5 = st.number_input("Enter the fifth number:")
+        num6 = st.number_input("Enter the sixth number:")
+        num7 = st.number_input("Enter the seventh number:")
+        num8 = st.number_input("Enter the eighth number:")
+        num9 = st.number_input("Enter the ninth number:")
+        numbers = [num1, num2, num3, num4, num5, num6, num7, num8, num9]
+        st.write("Numbers:", numbers)
+        st.write("Mean:", np.mean(numbers))
+        st.write("Standard Deviation:", np.std(numbers))
+        st.write("Variance:", np.var(numbers))
+        st.write("Median:", np.median(numbers))
+        st.write("Minimum:", np.min(numbers))
+        st.write("Maximum:", np.max(numbers))
+        st.write("Range:", np.max(numbers) - np.min(numbers))
+     else:
+        num1 = st.number_input("Enter the first number:")
+        num2 = st.number_input("Enter the second number:")
+        num3 = st.number_input("Enter the third number:")
+        num4 = st.number_input("Enter the fourth number:")
+        num5 = st.number_input("Enter the fifth number:")
+        num6 = st.number_input("Enter the sixth number:")
+        num7 = st.number_input("Enter the seventh number:")
+        num8 = st.number_input("Enter the eighth number:")
+        num9 = st.number_input("Enter the ninth number:")
+        num10 = st.number_input("Enter the tenth number:")
+        numbers = [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10]
+        st.write("Numbers:", numbers)
+        st.write("Mean:", np.mean(numbers))
+        st.write("Standard Deviation:", np.std(numbers))
+        st.write("Variance:", round(np.var(numbers), 2))
+        st.write("Median:", np.median(numbers))
+        st.write("Minimum:", np.min(numbers))
+        st.write("Maximum:", np.max(numbers))
+        st.write("Range:", np.max(numbers) - np.min(numbers))
+    
+elif mode == "Projectile Motion":
+    st.subheader("Projectile Motion")
+    st.write("This is where you can experiment with projectile motion and see how the angle of projection affects the trajectory of a projectile.")
+    theta = st.slider(label="Angle of Projection:", min_value=0, max_value=90, value=45)
+    st.write("Acceleration due to gravity (m/s^2):", 9.81)
+    u = st.slider(label="Initial Velocity (m/s):", min_value=1, max_value=100, value=10)
