@@ -284,37 +284,27 @@ elif mode == "Projectile Motion":
     st.write(f"Range: {range} m")
     max_height = (u**2 * (np.sin(np.radians(theta)))**2) / (2 * 9.81)
     st.write(f"Maximum Height: {max_height} m")
-    KE = 0.5 * m * u**2
-    U = m * 9.81 * max_height
-    st.write(f"Kinetic Energy (K.E.): {KE} J")
-    st.write(f"Potential Energy (U) at maximum height: {U} J")
+    
+    st.title("Projectile Trajectory Plotter")
 
 
-st.title("Projectile Trajectory Plotter")
+    g = 9.81  # Acceleration due to gravity (m/s^2)
 
+    angle_rad = np.radians(theta)
+    x = np.linspace(0, time_flight, 500)
+ 
+    y = u * np.sin(angle_rad) * x - 0.5 * g * (x**2)
 
-g = 9.81  # Acceleration due to gravity (m/s^2)
+    
+    fig, ax = plt.subplots(figsize=(20, 15))
+    ax.plot(x, y, color="dodgerblue", linewidth=2, label="Trajectory")
 
-# Convert angle to radians for trigonometric functions
-angle_rad = np.radians(theta)
+    # Format axes and labels
+    ax.set_title(f"Projectile Trajectory ($v_0 = {u}$ m/s, $\\theta = {theta}^\\circ$)")
+    ax.set_xlabel("Horizontal Distance (m)")
+    ax.set_ylabel("Vertical Height (m)")
+    ax.set_ylim(bottom=0)  
+    ax.grid(True, linestyle="--", alpha=0.5)
+    ax.legend()
 
-# 2. Calculate time of flight and time array
-t_flight = (2 * u * np.sin(angle_rad)) / g
-x = np.linspace(0, t_flight, 500)
-
-# 3. Calculate x and y trajectory positions
-y = u * np.sin(angle_rad) * x - 0.5 * g * (x**2)
-
-# 4. Plot the trajectory
-fig, ax = plt.subplots(figsize=(20, 15))
-ax.plot(x, y, color="dodgerblue", linewidth=2, label="Trajectory")
-
-# Format axes and labels
-ax.set_title(f"Projectile Trajectory ($v_0 = {u}$ m/s, $\\theta = {theta}^\\circ$)")
-ax.set_xlabel("Horizontal Distance (m)")
-ax.set_ylabel("Vertical Height (m)")
-ax.set_ylim(bottom=0)  
-ax.grid(True, linestyle="--", alpha=0.5)
-ax.legend()
-
-st.pyplot(fig)
+    st.pyplot(fig)
