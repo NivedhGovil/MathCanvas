@@ -300,11 +300,10 @@ angle_rad = np.radians(theta)
 
 # 2. Calculate time of flight and time array
 t_flight = (2 * u * np.sin(angle_rad)) / g
-t = np.linspace(0, t_flight, 100)
+x = np.linspace(0, t_flight, 500)
 
 # 3. Calculate x and y trajectory positions
-x = u * np.cos(angle_rad) * t
-y = u * np.sin(angle_rad) * t - 0.5 * g * (t**2)
+y = u * np.sin(angle_rad) * x - 0.5 * g * (x**2)
 
 # 4. Plot the trajectory
 fig, ax = plt.subplots(figsize=(20, 15))
