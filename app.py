@@ -308,19 +308,4 @@ elif mode == "Projectile Motion":
     ax.legend()
 
     st.pyplot(fig)
-    
-
-# Number of random dart throws
-N = 10000
-
-# Generate random (x, y) coordinates between -1 and 1
-x = np.random.uniform(-1, 1, N)
-y = np.random.uniform(-1, 1, N)
-
-# Point is inside the unit circle if x^2 + y^2 <= 1
-inside_circle = (x**2 + y**2) <= 1
-
-# Ratio of points inside circle to total points approx equals (Area of Circle / Area of Square) = pi / 4
-pi_estimate = 4 * np.sum(inside_circle) / N
-
-print(f"Estimated Pi with {N} samples: {pi_estimate}")
+        
