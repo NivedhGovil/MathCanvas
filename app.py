@@ -1,6 +1,4 @@
 
-# Create grpahs. 
-# Input n numbers. Find the mean, median, and mode of the numbers. Create a histogram of the numbers.
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,7 +14,7 @@ st.markdown("""
 
 
 st.title("Math Canvas")
-st.write(" Welcome to the Math Canvas, an interactive platform for exploring mathematical concepts through graph plotting and statistical analysis. Let's make math engaging and insightful!")
+st.write(" Welcome to the Math Canvas, an interactive platform for exploring mathematical concepts through graph plotting, statistical analysis and exploring projectile motion.")
 
 st.header("Modes")
 mode = st.selectbox("Choose the mode:", options = ["Graph Plot" , "Statistics", "Projectile Motion" ])
@@ -286,7 +284,6 @@ elif mode == "Projectile Motion":
     st.write(f"Maximum Height: {max_height} m")
     
     st.title("Projectile Trajectory Plotter")
-
 
     g = 9.81  # Acceleration due to gravity (m/s^2)
 
