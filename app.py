@@ -270,11 +270,6 @@ elif mode == "Projectile Motion":
     u = st.slider(label="Initial Velocity (m/s):", min_value=1, max_value=100, value=10)
     m = st.slider(label="Mass of the projectile (g):", min_value=1, max_value=10000, value=10)
     time_flight = (2 * u * np.sin(np.radians(theta))) / 9.81
-    t = st.slider(label="Time (s):", min_value=0, max_value=100, value=2)
-    if t > time_flight:
-            st.write("Time exceeds the time of flight. Please adjust the time.")
-    else: 
-            st.write("")
     
     ucos0 = np.round(u * np.cos(np.radians(theta)), 3)
     usin0 = np.round(u * np.sin(np.radians(theta)) - 9.81 * t, 3)
