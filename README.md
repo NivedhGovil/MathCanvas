@@ -73,6 +73,9 @@ MathCanvas/
 ```
 
 
+<img width="572" height="653" alt="Preview" src="https://github.com/user-attachments/assets/574b0d17-ac48-4ad3-ac3f-6f58c7f762a6" />
+
+
 
 ## Author
 
