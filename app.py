@@ -98,7 +98,7 @@ if mode == "Graph Plot":
             ax.set_xticklabels([r"$-4\pi$", r"$-3\pi$", r"$-2\pi$", r"$-\pi$", r"$0$", r"$\pi$", r"$2\pi$", r"$3\pi$", r"$4\pi$"], rotation=0 , color='black', fontsize = 20)
             ax.plot(x, y,  color='blue', linewidth=1, linestyle='-', label="Cosine Wave" ) 
             st.pyplot(fig, use_container_width=True)
-    elif equation_type == "ECG":
+    elif equation_type == "ECG(Heart Monitor)":
                 st.subheader("ECG Equation Plotter")
                 st.write("ECG (Electrocardiogram) is a graph that shows the electrical activity of the heart over time. This graph is just a sample of what one looks like and doesn't resemble a specific person's ECG.")
                 amplitude = st.slider(label="Amplitude:", min_value=1, max_value=50, value=10)
