@@ -14,14 +14,14 @@ st.markdown("""
 
 
 st.title("Math Canvas")
-st.write(" Welcome to the Math Canvas, an interactive platform for exploring mathematical concepts through graph plotting, statistical analysis and exploring projectile motion.")
+st.write(" Welcome to the Math Canvas, an interactive platform for exploring mathematical concepts through graph plotting, statistical analysis and projectile motion.")
 
 st.header("Modes")
 mode = st.selectbox("Choose the mode:", options = ["Graph Plot" , "Statistics", "Projectile Motion" ])
 
 if mode == "Graph Plot":
     st.subheader("Graph Plot")
-    equation_type = st.selectbox("Choose the equation type:", options = ["Constant" , "Linear" , "Quadratic" , "Sine" , "Cosine" , "Tangent" ])
+    equation_type = st.selectbox("Choose the equation type:", options = ["Constant" , "Linear" , "Quadratic" , "Sine" , "Cosine" , "ECG (Heart Monitor)" ])
     if equation_type == "Constant":
         st.subheader("Constant Equation Plotter")
         constant = st.number_input("Enter the constant value (e.g., 5):" , min_value=0, max_value=250, value=50)
@@ -100,6 +100,7 @@ if mode == "Graph Plot":
             st.pyplot(fig, use_container_width=True)
     elif equation_type == "ECG":
                 st.subheader("ECG Equation Plotter")
+                st.write("ECG (Electrocardiogram) is a graph that shows the electrical activity of the heart over time. This graph is just a sample of what one looks like and doesn't resemble a specific person's ECG.")
                 amplitude = st.slider(label="Amplitude:", min_value=1, max_value=50, value=10)
                 frequency = st.slider(label="Frequency:", min_value=1, max_value=50, value=10)
                 x = np.linspace(-4*np.pi, 4*np.pi, 2000)
@@ -155,6 +156,16 @@ elif mode == "Statistics":
          st.write("Minimum:", np.min(numbers))
          st.write("Maximum:", np.max(numbers))
          st.write("Range:", np.max(numbers) - np.min(numbers))
+         values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+         
+         fig, ax = plt.subplots(figsize=(10, 5))
+         ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+         y= np.linspace(0, max(values) + 5, 100)
+         ax.set_title("Statistics", fontsize=20)
+         ax.set_ylabel("Values", fontsize=15)
+         ax.set_xlabel("Measures", fontsize=15)
+         plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+         st.pyplot(fig, use_container_width=True)
      elif observations == "5":
         num1 = st.number_input("Enter the first number:")
         num2 = st.number_input("Enter the second number:")
@@ -170,6 +181,16 @@ elif mode == "Statistics":
         st.write("Minimum:", np.min(numbers))
         st.write("Maximum:", np.max(numbers))
         st.write("Range:", np.max(numbers) - np.min(numbers))
+        values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+        
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+        y= np.linspace(0, max(values) + 5, 100)
+        ax.set_title("Statistics", fontsize=20)
+        ax.set_ylabel("Values", fontsize=15)
+        ax.set_xlabel("Measures", fontsize=15)
+        plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+        st.pyplot(fig, use_container_width=True)
      elif observations == "6":
         num1 = st.number_input("Enter the first number:")
         num2 = st.number_input("Enter the second number:")
@@ -186,6 +207,16 @@ elif mode == "Statistics":
         st.write("Minimum:", np.min(numbers))
         st.write("Maximum:", np.max(numbers))
         st.write("Range:", np.max(numbers) - np.min(numbers))
+        values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+        
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+        y= np.linspace(0, max(values) + 5, 100)
+        ax.set_title("Statistics", fontsize=20)
+        ax.set_ylabel("Values", fontsize=15)
+        ax.set_xlabel("Measures", fontsize=15)
+        plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+        st.pyplot(fig, use_container_width=True)
      elif observations == "7":
         num1 = st.number_input("Enter the first number:")
         num2 = st.number_input("Enter the second number:")
@@ -203,6 +234,16 @@ elif mode == "Statistics":
         st.write("Minimum:", np.min(numbers))
         st.write("Maximum:", np.max(numbers))
         st.write("Range:", np.max(numbers) - np.min(numbers))
+        values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+                
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+        y= np.linspace(0, max(values) + 5, 100)
+        ax.set_title("Statistics", fontsize=20)
+        ax.set_ylabel("Values", fontsize=15)
+        ax.set_xlabel("Measures", fontsize=15)
+        plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+        st.pyplot(fig, use_container_width=True)
      elif observations == "8":
         num1 = st.number_input("Enter the first number:")
         num2 = st.number_input("Enter the second number:")
@@ -220,6 +261,16 @@ elif mode == "Statistics":
         st.write("Minimum:", np.min(numbers))
         st.write("Maximum:", np.max(numbers))
         st.write("Range:", np.max(numbers) - np.min(numbers))
+        values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+                
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+        y= np.linspace(0, max(values) + 5, 100)
+        ax.set_title("Statistics", fontsize=20)
+        ax.set_ylabel("Values", fontsize=15)
+        ax.set_xlabel("Measures", fontsize=15)
+        plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+        st.pyplot(fig, use_container_width=True)
      elif observations == "9":
         num1 = st.number_input("Enter the first number:")
         num2 = st.number_input("Enter the second number:")
@@ -239,6 +290,16 @@ elif mode == "Statistics":
         st.write("Minimum:", np.min(numbers))
         st.write("Maximum:", np.max(numbers))
         st.write("Range:", np.max(numbers) - np.min(numbers))
+        values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+                
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+        y= np.linspace(0, max(values) + 5, 100)
+        ax.set_title("Statistics", fontsize=20)
+        ax.set_ylabel("Values", fontsize=15)
+        ax.set_xlabel("Measures", fontsize=15)
+        plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+        st.pyplot(fig, use_container_width=True)
      else:
         num1 = st.number_input("Enter the first number:")
         num2 = st.number_input("Enter the second number:")
@@ -259,6 +320,16 @@ elif mode == "Statistics":
         st.write("Minimum:", np.min(numbers))
         st.write("Maximum:", np.max(numbers))
         st.write("Range:", np.max(numbers) - np.min(numbers))
+        values = [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)]
+                
+        fig, ax = plt.subplots(figsize=(10, 5))
+        ax.bar(["Mean", "Standard Deviation", "Median", "Minimum", "Maximum", "Range"], [np.mean(numbers), np.std(numbers), np.median(numbers), np.min(numbers), np.max(numbers), np.max(numbers) - np.min(numbers)], color="mediumseagreen", edgecolor="black", alpha=0.8)
+        y= np.linspace(0, max(values) + 5, 100)
+        ax.set_title("Statistics", fontsize=20)
+        ax.set_ylabel("Values", fontsize=15)
+        ax.set_xlabel("Measures", fontsize=15)
+        plt.xticks(rotation=15, ha="right") # Sets rotation of x-axis labels to 15 degrees right. 
+        st.pyplot(fig, use_container_width=True)
     
 elif mode == "Projectile Motion":
     st.subheader("Projectile Motion")
