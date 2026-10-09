@@ -70,6 +70,7 @@ if mode == "Graph Plot":
         c = st.text_input("Enter the coefficient c:")
     elif equation_type == "Sine":
         st.subheader("Sine Equation Plotter")
+        st.write("Sine is a trigonometric function that gives the ratio of the length of the side opposite the angle to the length of the hypotenuse. The sine function is periodic and oscillates between -1 and 1, with a period of 2π radians (360 degrees). It has a rotational symmetry of order 2 along the point(0,0)")
         amplitude = st.slider(label="Amplitude:", min_value=1, max_value=50, value=10)
         frequency = st.slider(label="Frequency:", min_value=1, max_value=50, value=10)
         x = np.linspace(-4*np.pi, 4*np.pi, 2000)
@@ -85,6 +86,7 @@ if mode == "Graph Plot":
         st.pyplot(fig, use_container_width=True)
     elif equation_type == "Cosine":
             st.subheader("Cosine Equation Plotter")
+            st.write("Cosine is a trigonometric function that gives the ratio of the length of the side adjacent to the angle to the length of the hypotenuse. The cosine function is periodic and oscillates between -1 and 1.")
             amplitude = st.slider(label="Amplitude:", min_value=1, max_value=50, value=10)
             frequency = st.slider(label="Frequency:", min_value=1, max_value=50, value=10)
             x = np.linspace(-4*np.pi, 4*np.pi, 2000)
