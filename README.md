@@ -1,10 +1,11 @@
 # MathCanvas
 
-Interactive math explorer for graphing equations, running statistics on data, and simulating projectile motion.
+MathCanvas is an **interactive math and physics explorer** that turns formulas and numbers into plots. You can graph equations, running statistics on data, and simulating projectile motion.
+Pick a mode, change the inputs, and the graph updates. 
+
+The interesting thing is that this website **didn't use any HTML tag**! It was built using the python libraries **Streamlit**, **Numpy** and **Matplotlib**. 
 
 **Live app:** [mathcanvas.streamlit.app](https://mathcanvas.streamlit.app/)
-
-MathCanvas is a website that turns formulas and numbers into plots. Pick a mode, change the inputs, and the graph updates so the relationship is easy to see.
 
 Built by [Nivedh Govil](https://github.com/NivedhGovil).
 
