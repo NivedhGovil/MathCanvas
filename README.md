@@ -47,13 +47,13 @@ Set the launch angle, initial speed, mass, and a time on the flight, then read:
 - Range
 - Maximum height
 
-Gravity is fixed at 9.81 m/s^2. 
+Gravitational acceleration is fixed at 9.81 m/s^2. 
 
-## Demo
+**View**
 
-Open the hosted app:
+Open the hosted website:
 
-**[https://mathcanvas.streamlit.app/](https://mathcanvas.streamlit.app/)**
+**[https://mathcanvas.streamlit.app/](https://mathcanvas.streamlit.app/)** or [https://mathcanvas.onrender.com/](https://mathcanvas.onrender.com/)
 
 ## Run locally
 
@@ -65,15 +65,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-
-## Project structure
-
-```text
-MathCanvas/
-├── app.py              # Streamlit website code. 
-├── requirements.txt    # streamlit, numpy, matplotlib. 
-└── README.md
-```
+# Preview
 
 
 <img width="572" height="653" alt="Preview" src="https://github.com/user-attachments/assets/574b0d17-ac48-4ad3-ac3f-6f58c7f762a6" />
