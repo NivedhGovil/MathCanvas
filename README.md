@@ -1,7 +1,8 @@
 # MathCanvas
 
-MathCanvas is an **interactive math and physics explorer** that turns formulas and numbers into plots. You can graph equations, running statistics on data, and simulating projectile motion.
-Pick a mode, change the inputs, and the graph updates. 
+MathCanvas is an **interactive math and physics explorer** in which one can graph equations, running statistics on data, and simulate projectile motion.
+One can pick a mode, change the inputs, and the graph updates. 
+
 
 The interesting thing is that this website **didn't use any HTML tag**! It was built using the python libraries **Streamlit**, **Numpy** and **Matplotlib**. 
 
@@ -13,7 +14,6 @@ Built by [Nivedh Govil](https://github.com/NivedhGovil).
 
 ### Graph Plot
 
-Plot common function families on a coordinate grid with axes and a light grid.
 
 | Type | User Inputs | 
 | --- | --- | 
@@ -33,9 +33,11 @@ Enter 3 to 10 observations and get:
 - Median
 - Standard deviation
 - Variance
-- Minimum, maximum, and range
+- Minimum
+- Maximum
+- Range
 
-With three observations, MathCanvas also draws a bar chart of those measures.
+MathCanvas also draws a *bar chart* of those measures of the data
 
 ### Projectile Motion
 
