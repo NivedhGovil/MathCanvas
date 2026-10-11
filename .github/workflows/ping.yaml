@@ -1,0 +1,18 @@
+name: Ping Streamlit App                   # The display name of your workflow in the GitHub Actions tab
+
+on:                                        # Defines the triggers that start this workflow
+  schedule:                                # Triggers the workflow on a time-based schedule
+    - cron: '*/10 * * * *'                 # Runs the workflow automatically every 10 minutes using a cron schedule
+  workflow_dispatch:                       # Allows you to click a button on GitHub to run this manually anytime
+
+jobs:                                      # Groups the tasks that make up this workflow
+  ping-job:                                # The unique identifier name for this specific job
+    runs-on: ubuntu-latest                 # Tells GitHub to run this job on a cloud virtual machine using the latest Ubuntu Linux
+
+    steps:                                 # A sequential list of individual tasks to execute within this job
+      - name: Checkout repository          # A label for the step that accesses your repository files
+        uses: actions/checkout@v4          # Uses an official GitHub pre-built tool to pull your repo into the virtual machine
+
+      - name: Send HTTP Ping               # A label for the step that will ping your website
+        run: |                             # The pipe symbol allows running multi-line terminal commands
+          curl -s "https://your-streamlit-app-url.onrender.com"  # Sends a silent web request (-s) to your app's URL to wake it up
