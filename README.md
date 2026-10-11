@@ -27,7 +27,7 @@ Built by [Nivedh Govil](https://github.com/NivedhGovil).
 
 ### Statistics
 
-Enter 3 to 10 observations and get:
+Enter 3 to 10 observations and see:
 
 - Mean
 - Median
@@ -37,11 +37,11 @@ Enter 3 to 10 observations and get:
 - Maximum
 - Range
 
-MathCanvas also draws a *bar chart* of those measures of the data
+MathCanvas also draws a *bar chart* of those measures of the data. 
 
 ### Projectile Motion
 
-Set the launch angle, initial speed, mass, and a time on the flight, then read:
+Set the launch angle, initial speed, mass, and a time on the flight, and then see:
 
 - Time of flight
 - Range
