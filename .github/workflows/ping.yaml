@@ -15,4 +15,4 @@ jobs:                                      # Groups the tasks that make up this 
 
       - name: Send HTTP Ping               # A label for the step that will ping your website
         run: |                             # The pipe symbol allows running multi-line terminal commands
-          curl -s "https://your-streamlit-app-url.onrender.com"  # Sends a silent web request (-s) to your app's URL to wake it up
+          curl -s "https://mathcanvas.streamlit.app"  # Sends a silent web request (-s) to your app's URL to wake it up
