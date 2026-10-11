@@ -2,7 +2,7 @@ name: Ping Streamlit App                   # The display name of your workflow i
 
 on:                                        # Defines the triggers that start this workflow
   schedule:                                # Triggers the workflow on a time-based schedule
-    - cron: '*/10 * * * *'                 # Runs the workflow automatically every 10 minutes using a cron schedule
+    - cron: '*/5 * * * *'                 # Runs the workflow automatically every 10 minutes using a cron schedule
   workflow_dispatch:                       # Allows you to click a button on GitHub to run this manually anytime
 
 jobs:                                      # Groups the tasks that make up this workflow
