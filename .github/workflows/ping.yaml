@@ -1,18 +1,41 @@
-name: Ping Streamlit App                   # The display name of your workflow in the GitHub Actions tab
+name: Keep Streamlit App Alive
 
-on:                                        # Defines the triggers that start this workflow
-  schedule:                                # Triggers the workflow on a time-based schedule
-    - cron: '*/5 * * * *'                 # Runs the workflow automatically every 10 minutes using a cron schedule
-  workflow_dispatch:                       # Allows you to click a button on GitHub to run this manually anytime
+# Defines when this workflow will run
+on:
+  schedule:
+    # Runs every 5 minutes (Note: GitHub's minimum cron frequency is 5 minutes)
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # Allows you to manually trigger the ping from the GitHub Actions tab
 
-jobs:                                      # Groups the tasks that make up this workflow
-  ping-job:                                # The unique identifier name for this specific job
-    runs-on: ubuntu-latest                 # Tells GitHub to run this job on a cloud virtual machine using the latest Ubuntu Linux
+jobs:
+  ping-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    steps:                                 # A sequential list of individual tasks to execute within this job
-      - name: Checkout repository          # A label for the step that accesses your repository files
-        uses: actions/checkout@v4          # Uses an official GitHub pre-built tool to pull your repo into the virtual machine
-
-      - name: Send HTTP Ping               # A label for the step that will ping your website
-        run: |                             # The pipe symbol allows running multi-line terminal commands
-          curl -s "https://mathcanvas.streamlit.app"  # Sends a silent web request (-s) to your app's URL to wake it up
+      - name: Send HTTP Request to Streamlit
+        run: |
+          TARGET_URL="https://mathcanvas.streamlit.app"
+          echo "Initiating ping to: $TARGET_URL"
+          
+          # Send a curl request:
+          # -s: Silent mode (suppresses progress meter)
+          # -o /dev/null: Discards the response body
+          # -w "%{http_code}": Outputs only the HTTP status code at the end
+          # --max-time 30: Times out after 30 seconds if the server hangs
+          # -L: Follows redirects automatically
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 -L "$TARGET_URL")
+          
+          echo "Response HTTP Status Code: $HTTP_STATUS"
+          
+          # Evaluate the status code
+          if [[ "$HTTP_STATUS" -ge 200 && "$HTTP_STATUS" -lt 400 ]]; then
+            echo "Success: App is awake and responding (Status $HTTP_STATUS)."
+            exit 0
+          else
+            echo "Notice: App returned status code $HTTP_STATUS. It might still be starting up or sleeping."
+            # Exiting with 0 prevents GitHub from marking the action as a "failure" 
+            # due to a temporary cold-start hiccup.
+            exit 0
+          fi
